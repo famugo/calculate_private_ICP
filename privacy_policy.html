@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器全能 - 隐私政策</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-left: 4px solid #4facfe;
+            padding-left: 20px;
+            font-weight: 500;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            font-weight: 500;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 500;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-info h3 {
+            color: #d63031;
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: #2d3436;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .company {
+            font-weight: 600;
+            color: #4facfe;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer {
+                padding: 20px;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>隐私政策</h1>
+            <p>《计算器全能》应用隐私保护声明</p>
+        </div>
+
+        <div class="content">
+            <div class="highlight">
+                <p><strong>《计算器全能》应用</strong>为<span class="company">孝感梦幻网络科技有限公司</span>研发的计算器类型应用，为用户提供计算服务。我们深知个人信息对您的重要性，并会尽全力保护您的个人信息安全可靠。</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>联系我们</h3>
+                <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
+                <p><a href="mailto:540314836@qq.com">540314836@qq.com</a></p>
+            </div>
+
+            <div class="section">
+                <h2>一、我们如何收集信息</h2>
+                <p>我们根据合法、正当、必要的原则，仅收集实现产品功能所必要的信息。</p>
+                
+                <h3>1. 账号注册信息</h3>
+                <p>目前仅提供微信、QQ授权第三方账号登录。当您选择使用第三方账号登录时，我们会读取您的头像、昵称信息。在使用深度合成功能时，可能需要绑定手机号进行实名认证。</p>
+
+                <h3>2. 设备信息</h3>
+                <p>为了产品和服务与设备进行必要的适配及提供安全服务，我们会收集设备名称、设备型号、设备识别码、IMSI、IMEI、MAC地址、操作系统和应用程序版本、语言设置、分辨率等相关信息。</p>
+
+                <h3>3. 位置信息</h3>
+                <p>当您开启设备定位功能并使用相关服务时，我们可能会使用GPS、WiFi或其他技术方式收集您的位置信息。</p>
+
+                <h3>4. 其他信息</h3>
+                <p>包括剪切板信息、日志信息，以及经您同意后收集的摄像头、麦克风、文件读取等权限相关信息。</p>
+            </div>
+
+            <div class="section">
+                <h2>二、权限使用说明</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>权限名称</th>
+                                <th>获取方式</th>
+                                <th>使用目的</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>设备识别码和状态</td>
+                                <td>用户主动授权</td>
+                                <td>识别真实用户，提供个性化服务，绑定VIP状态</td>
+                            </tr>
+                            <tr>
+                                <td>网络访问</td>
+                                <td>静默获取</td>
+                                <td>访问语音包、文字转语音等网络功能</td>
+                            </tr>
+                            <tr>
+                                <td>存储权限</td>
+                                <td>用户主动授权</td>
+                                <td>获取本地音频进行变声处理</td>
+                            </tr>
+                            <tr>
+                                <td>录音权限</td>
+                                <td>用户主动授权</td>
+                                <td>录制声音进行变声处理</td>
+                            </tr>
+                            <tr>
+                                <td>相机权限</td>
+                                <td>用户主动授权</td>
+                                <td>录制变声视频</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>三、信息使用方式</h2>
+                <p>我们严格遵守法律法规，将收集的信息用于以下用途：</p>
+                <ul>
+                    <li>满足您的个性化需求</li>
+                    <li>提供产品服务和功能优化</li>
+                    <li>保障账号和服务安全</li>
+                    <li>进行软件管理和升级</li>
+                    <li>邀请参与服务调查</li>
+                    <li>法律法规规定的其他情形</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>四、信息保护措施</h2>
+                <p>我们采用符合业界标准的安全防护措施：</p>
+                <ul>
+                    <li>使用SSL加密保护数据传输</li>
+                    <li>提供HTTPS安全浏览方式</li>
+                    <li>使用加密技术确保数据保密性</li>
+                    <li>部署访问控制机制</li>
+                    <li>定期进行安全培训</li>
+                </ul>
+                <div class="highlight">
+                    <p><strong>重要提示：</strong>除非取得您的书面许可，我们将在您删除或注销账户后1个月内保留您的个人信息，超出期限后将进行匿名化处理或销毁。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>五、您的权利</h2>
+                <p>您对个人信息享有以下权利：</p>
+                <ul>
+                    <li><strong>访问权：</strong>查看我们持有的您的个人信息</li>
+                    <li><strong>更正权：</strong>修改不准确的个人信息</li>
+                    <li><strong>删除权：</strong>要求删除您的个人信息</li>
+                    <li><strong>撤回同意：</strong>撤回之前给予的授权同意</li>
+                    <li><strong>注销账户：</strong>通过应用内设置注销您的账户</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>六、第三方服务</h2>
+                <p>我们的应用集成了以下第三方服务SDK：</p>
+                <ul>
+                    <li><strong>支付宝支付SDK：</strong>提供支付功能</li>
+                    <li><strong>微信SDK：</strong>提供登录和支付功能</li>
+                    <li><strong>QQ SDK：</strong>提供登录和支付功能</li>
+                    <li><strong>优量汇SDK：</strong>提供广告服务</li>
+                    <li><strong>百度语音技术：</strong>提供文字转语音功能</li>
+                    <li><strong>腾讯云：</strong>提供云服务支持</li>
+                    <li><strong>阿里云EMAS：</strong>提供数据分析和用户反馈</li>
+                    <li><strong>360加固保：</strong>提供应用安全加固</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>七、未成年人保护</h2>
+                <p>我们将不满16周岁的任何人均视为未成年人。如果没有父母或监护人的同意，未成年人不得创建账户。如发现在未获得父母同意情况下收集了未成年人信息，我们会尽快删除相关数据。</p>
+            </div>
+
+            <div class="section">
+                <h2>八、政策更新</h2>
+                <p>我们可能会不定时更新本隐私政策。更新时会以弹框或显著方式通知您，您同意后即表示接受修订后的政策。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>孝感梦幻网络科技有限公司</strong></p>
+            <p>更新日期：2025年5月24日 | 生效日期：2025年5月24日</p>
+            <p>我们致力于保护您的隐私权益</p>
+        </div>
+    </div>
+
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // 显示/隐藏回到顶部按钮
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        // 回到顶部功能
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
